@@ -28,7 +28,7 @@ void PlayerApp::setup()
 	HPV::InitHPVEngine();
 
 	mPlayer = hpv::createPlayer();
-	if ( hpv::loadMovie( mPlayer, getAssetPath( "sample.hpv" ) ) ) {
+	if ( hpv::loadMovie( mPlayer, getAssetPath( "test_alpha.hpv" ) ) ) {
 		mPlayer->setLoopMode( HPV_LOOPMODE_LOOP );
 		mGlslProg = hpv::createGlslProg( mPlayer );
 		mTexture = hpv::createTexture( mPlayer );
@@ -53,7 +53,7 @@ void PlayerApp::update()
 
 void PlayerApp::draw()
 {
-	gl::clear( Color::black() ); 
+	gl::clear( Colorf( 1.0f, 0.5f, 0.0f ) ); 
 
 	if ( mTexture && mGlslProg ) {
 		const gl::ScopedGlslProg scope( mGlslProg );

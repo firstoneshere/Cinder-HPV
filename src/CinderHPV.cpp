@@ -18,13 +18,15 @@ namespace hpv {
     gl::Texture2dRef createTexture( const HPVPlayerRef& player )
     {
         if ( player != nullptr ) {
-            return gl::Texture2d::create(
+            gl::Texture2dRef texture = gl::Texture2d::create(
                 GL_TEXTURE_2D,
                 RendererSingleton()->getTexturePtr( (GLuint)player->getID() ), 
                 player->getWidth(), 
                 player->getHeight(), 
                 false 
             );
+            texture->setTopDown();
+            return texture;
         }
         return nullptr;
     }
